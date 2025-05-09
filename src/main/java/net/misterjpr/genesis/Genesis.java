@@ -1,6 +1,8 @@
 package net.misterjpr.genesis;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.misterjpr.genesis.item.ModItems;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -23,6 +25,8 @@ public class Genesis {
     public Genesis(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
 
+        ModItems.register(modEventBus);
+
         NeoForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
@@ -35,6 +39,9 @@ public class Genesis {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey().equals(CreativeModeTabs.INGREDIENTS)) {
+            event.accept(ModItems.ETERNAL_ORB.get());
+        }
     }
 
     @SubscribeEvent
