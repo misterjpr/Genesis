@@ -31,9 +31,7 @@ public class Genesis {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        if (Config.modLog) {
-            LOGGER.info("Genesis on common setup");
-        }
+        LOGGER.info("Genesis: common setup");
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -41,9 +39,7 @@ public class Genesis {
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        if (Config.modLog) {
-            LOGGER.info("Genesis on server starting");
-        }
+        LOGGER.info("Genesis: server starting");
     }
 
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
