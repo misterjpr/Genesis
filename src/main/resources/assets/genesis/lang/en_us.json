@@ -1,5 +1,3 @@
 {
-  "itemGroup.genesis": "Example Mod Tab",
-  "block.genesis.example_block": "Example Block",
-  "item.genesis.example_item": "Example Item"
+  "item.genesis.eternal_orb": "Eternal Orb"
 }
